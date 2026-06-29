@@ -1896,6 +1896,7 @@
       let currentIndex = 0;
       const totalTiles = tiles.length;
       let carouselInterval;
+      let isPaused = false;       // external pause flag
 
       function updateCarousel() {
         tiles.forEach((tile, index) => {
@@ -1916,21 +1917,41 @@
       }
 
       function startCarousel() {
+        if (carouselInterval) clearInterval(carouselInterval);
         carouselInterval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalTiles;
-          updateCarousel();
+          if (!isPaused) {          // only advance if not paused
+            currentIndex = (currentIndex + 1) % totalTiles;
+            updateCarousel();
+          }
         }, 2200);
       }
+
+      // Public pause/resume functions
+      window.pauseCarousel = function () {
+        isPaused = true;
+      };
+      window.resumeCarousel = function () {
+        isPaused = false;
+      };
 
       updateCarousel();
       startCarousel();
 
       const grid = document.querySelector('.insta-grid');
       if (grid) {
-        grid.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-        grid.addEventListener('mouseleave', startCarousel);
+        // Pause on hover, resume on leave
+        grid.addEventListener('mouseenter', () => {
+          clearInterval(carouselInterval);
+        });
+        grid.addEventListener('mouseleave', () => {
+          // Only restart if not externally paused
+          if (!isPaused) {
+            startCarousel();
+          }
+        });
       }
 
+      // Click on active tile opens the Instagram post
       tiles.forEach(tile => {
         tile.addEventListener('click', function (e) {
           if (this.classList.contains('active')) {
