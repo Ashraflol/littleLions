@@ -1,0 +1,1336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Lion Kidswear — Launching Soon</title>
+    <meta
+      name="description"
+      content="Little Lion Kidswear — playful, comfy kidswear from Pune. Our online store is launching soon."
+    />
+    <link rel="icon" type="image/png" href="./littlelions.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0e0d0c;
+        --ink-2: #1b1916;
+        --yellow: #fdfe00;
+        --yellow-deep: #e6bd00;
+        --paper: #fffbf0;
+        --paper-2: #ffffff;
+        --cub-red: #ff3b30;
+        --grey: #6b6657;
+        --line: rgba(14, 13, 12, 0.12);
+        --maxw: 1240px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Work Sans", sans-serif;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Archivo Black", sans-serif;
+        line-height: 1.05;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px;
+        z-index: 2;
+        position: relative;
+      }
+      :focus-visible {
+        outline: 3px solid var(--cub-red);
+        outline-offset: 2px;
+      }
+
+      .tag {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cub-red);
+        font-weight: 700;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-family: "Archivo Black", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 15px 28px;
+        border-radius: 4px;
+        border: 2px solid var(--ink);
+        cursor: pointer;
+        transition: transform 0.15s ease;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-solid {
+        background: var(--ink);
+        color: var(--yellow);
+      }
+      .btn-yellow {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      /* ---------- ANNOUNCEMENT MARQUEE ---------- */
+      .announce {
+        background: var(--ink);
+        overflow: hidden;
+        padding: 9px 0;
+      }
+      .announce .track {
+        display: flex;
+        width: max-content;
+        animation: scrollbar 18s linear infinite;
+      }
+      .announce .track span {
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        padding: 0 28px;
+        white-space: nowrap;
+      }
+      @keyframes scrollbar {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---------- HEADER ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--paper-2);
+        border-bottom: 2px solid var(--ink);
+      }
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 18px 24px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        gap: 16px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 26px;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .nav-links a {
+        position: relative;
+        padding-bottom: 3px;
+      }
+      .nav-links a:hover {
+        color: var(--cub-red);
+      }
+      .logo {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .logo span {
+        color: var(--cub-red);
+      }
+      .nav-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+      }
+      .icon-btn {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--ink);
+        display: block;
+      }
+      @media (max-width: 780px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .nav {
+          grid-template-columns: auto 1fr auto;
+        }
+      }
+
+      /* ---------- HERO BANNER ---------- */
+      .hero-banner {
+        background: var(--yellow, 0.05);
+        border-bottom: 2px solid var(--ink);
+        padding: 64px 0 0;
+        overflow: hidden;
+        background-image: url(./storein6.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .hero-banner .wrap {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 30px;
+      }
+      .hero-banner h1 {
+        font-size: clamp(38px, 6.4vw, 76px);
+        color: var(--ink);
+        margin-bottom: 18px;
+        background-color: #fdfe00;
+        width: max-content;
+        padding: 5px;
+      }
+      .hero-banner p {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #3a3520;
+        max-width: 460px;
+        margin: 0 0 28px;
+        font-weight: 500;
+        color: var(--ink);
+        background-color: var(--paper);
+        padding: 5px;
+      }
+      .hero-banner .tag {
+        margin-bottom: 16px;
+        display: inline-block;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      .hero-art {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-art svg {
+        width: 100%;
+        max-width: 340px;
+      }
+      @media (max-width: 860px) {
+        .hero-banner .wrap {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+        .hero-art {
+          order: -1;
+          max-width: 240px;
+          margin: 0 auto 10px;
+        }
+      }
+
+      /* secondary banner strip under hero */
+      .sub-banners {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 2px solid var(--ink);
+
+        z-index: 2;
+        position: relative;
+      }
+      .sub-banner {
+        padding: 30px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        border-right: 2px solid var(--ink);
+      }
+      .sub-banner:last-child {
+        border-right: none;
+      }
+      .sub-banner h3 {
+        font-size: 18px;
+      }
+      .sub-banner p {
+        margin: 6px 0 0;
+        font-size: 13px;
+        color: #3a3520;
+        font-weight: 600;
+      }
+      @media (max-width: 700px) {
+        .sub-banners {
+          grid-template-columns: 1fr;
+        }
+        .sub-banner {
+          border-right: none;
+          border-bottom: 2px solid var(--ink);
+        }
+      }
+
+      /* ---------- MARQUEE BAND (signature, repeated) ---------- */
+      .stripe-band {
+        background: var(--ink);
+        padding: 16px 0;
+        overflow: hidden;
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+      }
+      .stripe-band .track {
+        display: flex;
+        width: max-content;
+        animation: scrollbar2 24s linear infinite;
+      }
+      .stripe-band .track span {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        padding: 0 26px;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .stripe-band .track span::after {
+        content: "🦁";
+        font-size: 14px;
+      }
+      @keyframes scrollbar2 {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .announce .track,
+        .stripe-band .track {
+          animation: none;
+        }
+      }
+
+      /* ---------- SECTION GENERIC ---------- */
+      section {
+        padding: 70px 0;
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+      .section-head h2 {
+        font-size: clamp(26px, 3.6vw, 38px);
+      }
+      .section-head .tag {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* ---------- CATEGORY GRID ---------- */
+      .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .cat-tile {
+        /* border: 2px solid var(--ink); */
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--paper-2);
+      }
+      .cat-tile .img {
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        border-bottom: 2px solid var(--ink);
+        overflow: hidden;
+      }
+      .cat-tile:nth-child(1) .img {
+        background: var(--yellow);
+      }
+      .cat-tile:nth-child(2) .img {
+        background: var(--ink);
+        color: var(--yellow);
+      }
+      .cat-tile:nth-child(3) .img {
+        background: var(--cub-red);
+        color: var(--paper-2);
+      }
+      .cat-tile:nth-child(4) .img {
+        background: #fff1b8;
+      }
+      .cat-tile .caption {
+        padding: 14px 14px 16px;
+      }
+      .cat-tile .caption h3 {
+        font-size: 14px;
+        letter-spacing: 0.02em;
+      }
+      .cat-tile .caption span {
+        font-size: 11px;
+        color: var(--grey);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      @media (max-width: 860px) {
+        .cat-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ---------- PRODUCT GRID (coming soon) ---------- */
+      .prod-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .prod-card {
+        /* border: 2px solid var(--ink); */
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--paper-2);
+        position: relative;
+      }
+      .prod-card .thumb {
+        aspect-ratio: 4/5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 46px;
+        border-bottom: 2px solid var(--ink);
+        position: relative;
+        overflow: hidden;
+      }
+      .prod-card:nth-child(1) .thumb {
+        background: linear-gradient(160deg, #ffe177, #ffd400);
+      }
+      .prod-card:nth-child(2) .thumb {
+        background: linear-gradient(160deg, #ffb3ac, #ff3b30);
+      }
+      .prod-card:nth-child(3) .thumb {
+        background: linear-gradient(160deg, #2b2620, #0e0d0c);
+      }
+      .prod-card:nth-child(4) .thumb {
+        background: linear-gradient(160deg, #ffe177, #ffd400);
+      }
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: var(--ink);
+        color: var(--yellow);
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 5px 9px;
+        border-radius: 3px;
+      }
+      .prod-info {
+        padding: 14px;
+      }
+      .prod-info h3 {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: none;
+        font-family: "Work Sans", sans-serif;
+        letter-spacing: 0;
+        margin-bottom: 4px;
+      }
+      .prod-info .price-row {
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        color: var(--grey);
+      }
+      @media (max-width: 860px) {
+        .prod-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ---------- INSTAGRAM ---------- */
+      .insta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .insta-tile {
+        /* aspect-ratio: 1; */
+        /* border: 2px solid var(--ink); */
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      /* .insta-tile:nth-child(odd) {
+        background: var(--yellow);
+      }
+      .insta-tile:nth-child(even) {
+        background: var(--ink);
+        color: var(--yellow);
+      } */
+      @media (max-width: 860px) {
+        .insta-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      /* ---------- VISIT US ---------- */
+      .visit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        /* border: 2px solid var(--ink); */
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .visit-card {
+        padding: 34px;
+        background: var(--paper-2);
+        border-right: 2px solid var(--ink);
+      }
+      .visit-card h3 {
+        font-size: 22px;
+        margin-bottom: 14px;
+      }
+      .visit-card p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #3a3520;
+        margin: 0 0 4px;
+        font-weight: 500;
+      }
+      .visit-card .label {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--cub-red);
+        margin-top: 16px;
+        display: block;
+        font-weight: 700;
+      }
+      .map-frame {
+        min-height: 300px;
+      }
+      .map-frame iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        border: 0;
+        display: block;
+      }
+      @media (max-width: 860px) {
+        .visit-grid {
+          grid-template-columns: 1fr;
+        }
+        .visit-card {
+          border-right: none;
+          border-bottom: 2px solid var(--ink);
+        }
+      }
+
+      /* ---------- NOTIFY BANNER ---------- */
+      .notify-banner {
+        background: var(--ink);
+        padding: 60px 0;
+        text-align: center;
+      }
+      .notify-banner h2 {
+        color: var(--yellow);
+        font-size: clamp(26px, 4vw, 42px);
+        margin-bottom: 14px;
+      }
+      .notify-banner p {
+        color: #cfc7af;
+        font-size: 15px;
+        max-width: 440px;
+        margin: 0 auto 26px;
+        font-weight: 500;
+      }
+      .notify-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 460px;
+        margin: 0 auto;
+      }
+      .notify-form input[type="email"] {
+        flex: 1;
+        min-width: 200px;
+        padding: 14px 16px;
+        border: 2px solid var(--yellow);
+        border-radius: 4px;
+        background: var(--ink-2);
+        color: var(--paper-2);
+        font-family: "Work Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .notify-form input::placeholder {
+        color: #8c8470;
+      }
+      .notify-form input:focus {
+        outline: none;
+        border-color: var(--paper-2);
+      }
+      .form-success {
+        color: var(--yellow);
+        font-weight: 700;
+        font-size: 13px;
+        margin-top: 14px;
+        display: none;
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        background: var(--ink-2);
+        padding: 54px 0 26px;
+        color: #cfc7af;
+      }
+      .foot-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 36px;
+      }
+      .foot-brand .logo {
+        color: var(--yellow);
+        margin-bottom: 10px;
+      }
+      .foot-brand .logo span {
+        color: var(--paper-2);
+      }
+      .foot-brand p {
+        max-width: 260px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .foot-col h4 {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--yellow);
+        margin-bottom: 14px;
+        font-weight: 700;
+      }
+      .foot-col a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+      .foot-col a:hover {
+        color: var(--yellow);
+      }
+      .foot-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 12px;
+        color: #7d765f;
+      }
+      .social-row {
+        display: flex;
+        gap: 12px;
+      }
+      .social-row a {
+        width: 34px;
+        height: 34px;
+        border-radius: 4px;
+        border: 1px solid var(--yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--yellow);
+      }
+      .social-row a:hover {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+      /* Main outer wrapper */
+      .carousel-hero {
+        position: relative;
+        width: 100%;
+        height: 500px; /* Set your desired slider height */
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      /* Background container spanning full width/height */
+      .carousel-backgrounds {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Sits behind content */
+      }
+
+      /* Shared rules for all background image tracks */
+      .bg-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0; /* Hidden by default */
+        animation: imageFade 12s infinite ease-in-out; /* 12s total duration */
+      }
+
+      /* Multi-image blend overlay mask for text contrast */
+      .carousel-backgrounds::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Darkens the image for text clarity */
+        z-index: 2;
+      }
+
+      /* Staggered animation delays for 3 images */
+      .bg-slide:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .bg-slide:nth-child(2) {
+        animation-delay: 4s;
+      }
+      .bg-slide:nth-child(3) {
+        animation-delay: 8s;
+      }
+
+      /* Pure CSS Fade Animation */
+      @keyframes imageFade {
+        0% {
+          opacity: 0;
+        }
+        8% {
+          opacity: 1;
+        } /* Fades in quickly */
+        33% {
+          opacity: 1;
+        } /* Stays completely visible */
+        41% {
+          opacity: 0;
+        } /* Fades out smoothly */
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Foreground content container */
+      .static-content {
+        position: relative;
+        z-index: 3; /* Sits firmly on top of images and dark mask */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-align: center;
+        pointer-events: none; /* Allows clicking through empty space if needed */
+      }
+
+      /* Restores clickability exclusively for the action button */
+      .cta-btn {
+        pointer-events: auto;
+        margin-top: 15px;
+        padding: 10px 24px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announce" aria-hidden="true">
+      <div class="track">
+        <span>🦁 LITTLE LION IS LAUNCHING SOON — GET ON THE LIST</span>
+        <span>🦁 LITTLE LION IS LAUNCHING SOON — GET ON THE LIST</span>
+        <span>🦁 LITTLE LION IS LAUNCHING SOON — GET ON THE LIST</span>
+        <span>🦁 LITTLE LION IS LAUNCHING SOON — GET ON THE LIST</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="nav">
+        <nav class="nav-links">
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#instagram">Instagram</a>
+          <a href="#visit">Visit Us</a>
+        </nav>
+        <a class="logo" href="#top"
+          ><img
+            src="./littlelions.jpg"
+            style="border-radius: 50%; max-width: 50px"
+            alt="Little Lion"
+        /></a>
+        <div class="nav-right">
+          <svg
+            class="icon-btn"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <a
+            href="https://www.instagram.com/little_lion_kidswear/"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              class="icon-btn"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" />
+            </svg>
+          </a>
+          <a
+            href="#notify"
+            class="btn btn-solid"
+            style="padding: 10px 18px; font-size: 11px"
+            >Notify Me</a
+          >
+          <div class="hamburger" style="display: none" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO BANNER -->
+      <section
+        class="hero-banner"
+        id="notify"
+        style="padding-bottom: 0; position: relative"
+      >
+        <div class="carousel-backgrounds">
+          <div
+            class="bg-slide"
+            style="background-image: url(./storein2.jpg)"
+          ></div>
+          <div
+            class="bg-slide"
+            style="background-image: url(./storein8.jpg)"
+          ></div>
+          <div
+            class="bg-slide"
+            style="background-image: url(./storein.jpg)"
+          ></div>
+          <div
+            class="bg-slide"
+            style="background-image: url(./storein5.jpg)"
+          ></div>
+          <div
+            class="bg-slide"
+            style="background-image: url(./storein4.jpg)"
+          ></div>
+          <div
+            class="bg-slide"
+            style="background-image: url(./littlelionstreet.jpg)"
+          ></div>
+        </div>
+        <div class="wrap">
+          <div>
+            <span class="tag">Launching Soon · Pune, India</span>
+            <h1>Little Lion</h1>
+            <h1>is almost</h1>
+            <h1>here.</h1>
+            <p>
+              Playful prints. Cub-soft fabrics. Easy everyday comfort. Our
+              online store for little explorers is getting ready to open — be
+              first in the pride to shop it.
+            </p>
+            <div class="hero-btns">
+              <a href="#shop" class="btn btn-solid">Shop Preview</a>
+              <a
+                href="https://www.instagram.com/little_lion_kidswear/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-solid"
+                >Follow on Instagram</a
+              >
+            </div>
+          </div>
+          <div class="hero-art">
+            <img
+              src="./littlelions.jpg"
+              style="border-radius: 50%; max-width: 340px"
+              alt="Little Lion"
+            />
+          </div>
+        </div>
+        <div class="sub-banners">
+          <div class="sub-banner">
+            <div>
+              <!-- <h3>New Arrivals</h3> -->
+              <p>First drop landing soon</p>
+            </div>
+            <a
+              href="#shop"
+              class="btn btn-solid"
+              style="padding: 10px 16px; font-size: 11px"
+              >Preview</a
+            >
+          </div>
+          <div class="sub-banner">
+            <div>
+              <!-- <h3>Get Notified</h3> -->
+              <p>Be first to know we're live</p>
+            </div>
+            <a
+              href="#notify-form"
+              class="btn btn-solid"
+              style="padding: 10px 16px; font-size: 11px"
+              >Sign Up</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE BAND 1 -->
+      <div class="stripe-band" aria-hidden="true">
+        <div class="track">
+          <span>ROAR-SOME KIDSWEAR</span><span>MADE FOR LITTLE EXPLORERS</span
+          ><span>LAUNCHING SOON</span><span>PUNE, INDIA</span>
+          <span>ROAR-SOME KIDSWEAR</span><span>MADE FOR LITTLE EXPLORERS</span
+          ><span>LAUNCHING SOON</span><span>PUNE, INDIA</span>
+        </div>
+      </div>
+
+      <!-- CATEGORY GRID -->
+      <section id="shop">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="tag">A Sneak Peek</span>
+              <h2>Shop by category</h2>
+            </div>
+          </div>
+          <div class="cat-grid">
+            <div class="cat-tile">
+              <div class="img">
+                <img src="./infantclothes.webp" alt="Baby & Infant" />
+              </div>
+              <div class="caption">
+                <h3>Baby &amp; Infant</h3>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+            <div class="cat-tile">
+              <div class="img"><img src="./boysclothes.jpg" alt="Boys" /></div>
+              <div class="caption">
+                <h3>Boys</h3>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+            <div class="cat-tile">
+              <div class="img"><img src="./girlcloth.webp" alt="Girls" /></div>
+              <div class="caption">
+                <h3>Girls</h3>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+            <div class="cat-tile">
+              <div class="img">
+                <img src="./acccessiories.jpeg" alt="Accessories" />
+              </div>
+              <div class="caption">
+                <h3>Accessories</h3>
+                <span>Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT PREVIEW GRID -->
+      <section id="about" style="padding-top: 0">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="tag">First Drop</span>
+              <h2>What's landing in the den</h2>
+            </div>
+            <a href="#notify-form" class="btn btn-outline">Get Notified</a>
+          </div>
+          <div class="prod-grid">
+            <div class="prod-card">
+              <div class="thumb">
+                <img src="./cubPrint.jpg" alt="Cub Print Tee" />
+              </div>
+              <div class="prod-info">
+                <h3>Cub Print Tee</h3>
+                <div class="price-row">Launching Soon</div>
+              </div>
+            </div>
+            <div class="prod-card">
+              <div class="thumb">
+                <img src="./shorts.webp" alt="Roar Shorts Set" />
+              </div>
+              <div class="prod-info">
+                <h3>Roar Shorts Set</h3>
+                <div class="price-row">Launching Soon</div>
+              </div>
+            </div>
+            <div class="prod-card">
+              <div class="thumb">
+                <img src="./hoodie.jpg" alt="Mane Hoodie" />
+              </div>
+              <div class="prod-info">
+                <h3>Mane Hoodie</h3>
+                <div class="price-row">Launching Soon</div>
+              </div>
+            </div>
+            <div class="prod-card">
+              <div class="thumb">
+                <img src="./play.jpeg" alt="Pride Play Dress" />
+              </div>
+              <div class="prod-info">
+                <h3>Pride Play Dress</h3>
+                <div class="price-row">Launching Soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MARQUEE BAND 2 (repeated, like wtflex's recurring strip) -->
+      <div class="stripe-band" aria-hidden="true">
+        <div class="track">
+          <span>JOIN THE PRIDE</span><span>FOLLOW @LITTLE_LION_KIDSWEAR</span
+          ><span>LITTLE LION KIDSWEAR</span> <span>JOIN THE PRIDE</span
+          ><span>FOLLOW @LITTLE_LION_KIDSWEAR</span
+          ><span>LITTLE LION KIDSWEAR</span>
+        </div>
+      </div>
+
+      <!-- INSTAGRAM -->
+      <section id="instagram">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="tag">Join The Pride</span>
+              <h2>Our Instagram</h2>
+            </div>
+            <a
+              href="https://www.instagram.com/little_lion_kidswear/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-outline"
+              >@little_lion_kidswear ↗</a
+            >
+          </div>
+          <div class="insta-grid" aria-hidden="true">
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DVHFZ0nArPI/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DRkGz8dgrfU/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DSS4z9QgiKw/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DaFRit4iZ6w/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DaAOfY_CuA_/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DZ7h89XCr8j/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DZ18aSyitkj/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+            <div class="insta-tile">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DZrjuf7CcZ4/"
+                data-instgrm-version="14"
+              ></blockquote>
+
+              <script async src="https://www.instagram.com/embed.js"></script>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISIT US -->
+      <section id="visit" style="padding-top: 0">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="tag">Come Say Hi</span>
+              <h2>Visit our store in Pune</h2>
+            </div>
+          </div>
+          <div class="visit-grid">
+            <div class="visit-card">
+              <h3>Little Lion Kid's Wear</h3>
+              <p>
+                Drop by our store in Pune to browse and feel the fabrics in
+                person while our online shop gets ready to launch.
+              </p>
+              <span class="label">Address</span>
+              <p>
+                <em
+                  >Shop no 5, Ground Floor, Sheetal square, next to sheetal
+                  petrol pump, Meeta Nagar, Kondhwa, Pune, Maharashtra
+                  411048</em
+                >
+              </p>
+              <span class="label">Hours</span>
+              <p><em>11 am–10 pm</em></p>
+              <a
+                href="https://www.google.com/maps/place/Little+Lion+Kid's+wear/@18.4695723,73.8889457,3a,75y,90t/data=!3m8!1e2!3m6!1sCIABIhAJrJTQ3H_cvEDXpMNuqgDZ!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAPNQkAHxFs4g9g_RVYP3IyNcSQNJKEPh_uqNhEKA-oBWpnj-epAROsuyCqvPYWkNJy8JfkIe3vqxA-mtNhZwlxxToQDCDvBcLU9MES7MJq6Wj_YPqrEthJ8DJxOGj1KmMpf2uvovhqj_YZTOEf0%3Dw86-h114-k-no!7i1200!8i1600!4m7!3m6!1s0x3bc2eb3a3b3f9131:0x423dc154c11c3b9c!8m2!3d18.4696145!4d73.8885947!10e5!16s%2Fg%2F11mkzsd518!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-solid"
+                style="margin-top: 20px"
+                >Get Directions ↗</a
+              >
+            </div>
+            <div class="map-frame">
+              <iframe
+                src="https://www.google.com/maps?q=18.4696145,73.8885947&z=16&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Little Lion Kid's Wear location map"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTIFY BANNER -->
+      <section class="notify-banner" id="notify-form" style="padding-top: 0">
+        <div class="wrap" style="padding-block: 200px">
+          <h2>Be first to shop the roar</h2>
+          <p>
+            Pop in your email and we'll let you know the second the store opens
+            for business.
+          </p>
+          <form class="notify-form" id="notifyForm">
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+            <button type="submit" class="btn btn-yellow">Notify Me</button>
+          </form>
+          <p class="form-success" id="formSuccess">
+            You're on the list! See you at launch 🦁
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a class="logo" href="#top">
+              <img
+                src="./littlelions.jpg"
+                style="border-radius: 50%; max-width: 50px"
+                alt="Little Lion"
+              />
+            </a>
+            <p>
+              Playful, comfy kidswear made for everyday adventures. Currently
+              roaming Pune — online store launching soon.
+            </p>
+          </div>
+          <div class="foot-col">
+            <h4>Explore</h4>
+            <a href="#shop">Shop Preview</a>
+            <a href="#about">First Drop</a>
+            <a href="#visit">Visit Us</a>
+          </div>
+          <div class="foot-col">
+            <h4>Connect</h4>
+            <a
+              href="https://www.instagram.com/little_lion_kidswear/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a href="#notify-form">Get Launch Updates</a>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 Little Lion Kidswear, Pune. All rights reserved.</span>
+          <div class="social-row">
+            <a
+              href="https://www.instagram.com/little_lion_kidswear/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      var form = document.getElementById("notifyForm");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var input = document.getElementById("email");
+          var success = document.getElementById("formSuccess");
+          if (input && input.value) {
+            success.style.display = "block";
+            form.reset();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
